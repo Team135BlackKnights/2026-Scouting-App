@@ -1,8 +1,8 @@
-# 2025-Scouting_Data-Collection
+# 2026-Scouting_App
 
 ## Overview
 
-The **2025-Scouting_Data-Collection** app is a tool developed by **Team 135** for collecting scouting data at FRC events. This app is designed to assist in analyzing team performance during the **REEFSCAPE** game. Built using **Android Studio** in **Java**, the app allows scouts to easily record data in real-time during competitions. It also utilizes **QR codes** to quickly identify teams and match data.
+The **2025-Scouting_App** app is a tool developed by **Team 135** for collecting scouting data at FRC events. This app is designed to assist in analyzing team performance during the **REBUILT** game. Built using **Android Studio** in **Java**, the app allows scouts to easily record data in real-time during competitions. It also utilizes **QR codes** to quickly identify teams and match data.
 
 ## Features
 
