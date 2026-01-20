@@ -47,14 +47,12 @@ class PlayoffActivity : ComponentActivity() {
                     /* The values of these variables are increased/decreased by 1 when their
                     corresponding counter addition/subtraction button is pressed.
                     Their default values are set to 0 */
-                    var ampCount by remember { mutableStateOf(0) }
-                    var unamplifiedSpeakerCount by remember { mutableStateOf(0) }
-                    var amplifiedSpeakerCount by remember { mutableStateOf(0) }
-                    var lobFerryCount by remember { mutableStateOf(0) }
-                    var l4 by remember { mutableStateOf(0) }
-                    var netScore by remember { mutableStateOf(0) }
-                    var Processor_score by remember { mutableStateOf(0) }
 
+
+
+                    var hub by remember {mutableStateOf(0) }
+                    var tower by remember {mutableStateOf(0)}
+                    var outpost by remember {mutableStateOf(0)}
                     // This row contains the reset button
                     Row(modifier = Modifier.weight(0.1f)) {
                         // Reset Button
@@ -62,13 +60,9 @@ class PlayoffActivity : ComponentActivity() {
                             backgroundColor = Color.LightGray, contentColor = Color.Black
                         ), onClick = {
                             // When pressed, resets all the counter values to 0
-                            ampCount = 0
-                            unamplifiedSpeakerCount = 0
-                            amplifiedSpeakerCount = 0
-                            lobFerryCount = 0
-                            l4 = 0
-                            netScore = 0
-                            Processor_score = 0
+                            hub = 0;
+                            tower = 0;
+                            outpost = 0;
 
                         }) {
                             Text("Reset")
@@ -81,24 +75,24 @@ class PlayoffActivity : ComponentActivity() {
                     ) {
                         // Amp Counter Button
                         CounterButton(
-                            color = Color(214, 212, 154), countItem = "L1 Coral",
+                            color = Color(214, 212, 154), countItem = "Hub Score",
                             // When minus button is pressed, decreases count by 1 (but prevents negative counts)
-                            onMinusPress = { if (ampCount > 0) ampCount-- },
+                            onMinusPress = { if (hub > 0) hub },
                             // When main button is pressed, increases count by 1
-                            onPlusPress = { ampCount++ },
+                            onPlusPress = { hub },
                             // Sets the displayed counter value to the amp count
-                            countItemValue = ampCount
+                            countItemValue = hub
                         )
 
                         // Lob Ferry Counter Button
                         CounterButton(
-                            color = Color(198, 171, 201), countItem = "L2 Coral",
+                            color = Color(198, 171, 201), countItem = "Tower Score",
                             // When minus button is pressed, decreases count by 1 (but prevents negative counts)
-                            onMinusPress = { if (lobFerryCount > 0) lobFerryCount-- },
+                            onMinusPress = { if (tower > 0) tower },
                             // When main button is pressed, increases count by 1
-                            onPlusPress = { lobFerryCount++ },
+                            onPlusPress = { tower },
                             // Sets the displayed counter value to the lob ferry count
-                            countItemValue = lobFerryCount
+                            countItemValue = tower
                         )
                     }
 
@@ -109,71 +103,15 @@ class PlayoffActivity : ComponentActivity() {
                     ) {
                         // Unamplified Speaker Counter Button
                         CounterButton(
-                            color = Color(143, 226, 227), countItem = "L3 Coral",
+                            color = Color(143, 226, 227), countItem = "outPost",
                             // When minus button is pressed, decreases count by 1 (but prevents negative counts)
-                            onMinusPress = { if (unamplifiedSpeakerCount > 0) unamplifiedSpeakerCount-- },
+                            onMinusPress = { if (outpost > 0) outpost },
                             // When main button is pressed, increases count by 1
-                            onPlusPress = { unamplifiedSpeakerCount++ },
+                            onPlusPress = { outpost++ },
                             // Sets the displayed counter value to the unamplified speaker count
-                            countItemValue = unamplifiedSpeakerCount
-                        )
-
-                        CounterButton(
-                            // Amplified Counter Button
-                            color = Color(165, 222, 164), countItem = "L4 Coral",
-                            // When minus button is pressed, decreases count by 1 (but prevents negative counts)
-                            onMinusPress = { if (amplifiedSpeakerCount > 0) amplifiedSpeakerCount-- },
-                            // When main button is pressed, increases count by 1
-                            onPlusPress = { amplifiedSpeakerCount++ },
-                            // Sets the displayed counter value to the amplified speaker count
-                            countItemValue = amplifiedSpeakerCount
-                        )
-
-
-                    }
-
-                    Row(
-                        modifier = Modifier.weight(0.4f),
-                        horizontalArrangement = Arrangement.SpaceEvenly,
-                    ) {
-                        CounterButton(
-                            color = Color(193, 226, 50), countItem = "Algae",
-                            // When minus button is pressed, decreases count by 1 (but prevents negative counts)
-                            onMinusPress = { if (l4 > 0) l4-- },
-                            // When main button is pressed, increases count by 1
-                            onPlusPress = { l4++ },
-                            // Sets the displayed counter value to the unamplified speaker count
-                            countItemValue = l4
-                        )
-
-
-                        CounterButton(
-                            color = Color(250, 266, 350), countItem = "Net score",
-                            // When minus button is pressed, decreases count by 1 (but prevents negative counts)
-                            onMinusPress = { if (netScore > 0) netScore-- },
-                            // When main button is pressed, increases count by 1
-                            onPlusPress = { netScore++ },
-                            // Sets the displayed counter value to the unamplified speaker count
-                            countItemValue = netScore
+                            countItemValue = outpost
                         )
                     }
-                        Row(
-                            modifier = Modifier.weight(0.4f),
-                            horizontalArrangement = Arrangement.SpaceEvenly,
-                            ){
-                        CounterButton(
-                            color = Color(250, 466, 150), countItem = "Processor",
-                            // When minus button is pressed, decreases count by 1 (but prevents negative counts)
-                            onMinusPress = { if (Processor_score > 0) Processor_score-- },
-                            // When main button is pressed, increases count by 1
-                            onPlusPress = { Processor_score++ },
-                            // Sets the displayed counter value to the unamplified speaker count
-                            countItemValue = Processor_score
-                        )
-
-                    }
-
-
                 }
             }
         }

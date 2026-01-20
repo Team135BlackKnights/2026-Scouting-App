@@ -77,6 +77,7 @@ class Constants {
         AUTO_INTAKE_TOP_TREE_ALGAE,
         AUTO_INTAKE_MID_TREE_ALGAE,
         AUTO_INTAKE_BOTTOM_TREE_ALGAE,
+
         START_INCAP,
         END_INCAP,
         TO_TELEOP,
