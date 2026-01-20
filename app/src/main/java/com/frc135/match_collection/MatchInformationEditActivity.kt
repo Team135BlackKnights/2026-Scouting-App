@@ -120,9 +120,17 @@ class MatchInformationEditActivity : MatchInformationActivity() {
             val newPressTime = System.currentTimeMillis()
             if (buttonPressedTime + 250 < newPressTime) {
                 buttonPressedTime = newPressTime
-                if (safetyCheck(view = view, "match_edit_activity_screen")) {
+                if (safetyCheck(
+                        view = view,
+                        currentScreen = "match_edit_activity_screen",
+                        etMatchNumber = binding.etMatchNumber,
+                        etTeamOne = binding.etTeamOne,
+                        etTeamTwo = binding.etTeamTwo,
+                        etTeamThree = binding.etTeamThree
+                    )) {
                     generateQR()
                 }
+
             }
         }
     }
