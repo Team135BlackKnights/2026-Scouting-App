@@ -77,9 +77,9 @@ class PlayoffActivity : ComponentActivity() {
                         CounterButton(
                             color = Color(214, 212, 154), countItem = "Hub Score",
                             // When minus button is pressed, decreases count by 1 (but prevents negative counts)
-                            onMinusPress = { if (hub > 0) hub },
+                            onMinusPress = { if (hub > 0) hub-- },
                             // When main button is pressed, increases count by 1
-                            onPlusPress = { hub },
+                            onPlusPress = { hub++},
                             // Sets the displayed counter value to the amp count
                             countItemValue = hub
                         )
@@ -88,9 +88,9 @@ class PlayoffActivity : ComponentActivity() {
                         CounterButton(
                             color = Color(198, 171, 201), countItem = "Tower Score",
                             // When minus button is pressed, decreases count by 1 (but prevents negative counts)
-                            onMinusPress = { if (tower > 0) tower },
+                            onMinusPress = { if (tower > 0) tower--},
                             // When main button is pressed, increases count by 1
-                            onPlusPress = { tower },
+                            onPlusPress = {tower++},
                             // Sets the displayed counter value to the lob ferry count
                             countItemValue = tower
                         )
@@ -105,7 +105,7 @@ class PlayoffActivity : ComponentActivity() {
                         CounterButton(
                             color = Color(143, 226, 227), countItem = "outPost",
                             // When minus button is pressed, decreases count by 1 (but prevents negative counts)
-                            onMinusPress = { if (outpost > 0) outpost },
+                            onMinusPress = { if (outpost > 0) outpost--},
                             // When main button is pressed, increases count by 1
                             onPlusPress = { outpost++ },
                             // Sets the displayed counter value to the unamplified speaker count
