@@ -56,6 +56,10 @@ class AutoIntakeFragment : Fragment(R.layout.collection_objective_auto_fragment)
      *
      */
 
+    var numActionScorel2coral = 0;
+    var numActionScorel1coral = 0;
+
+    var numActionScorel3coral = 0;
     private var _binding: CollectionObjectiveAutoFragmentBinding? = null
     private val binding get() = _binding!!
 
@@ -140,10 +144,15 @@ class AutoIntakeFragment : Fragment(R.layout.collection_objective_auto_fragment)
 
                                             collectionObjectiveActivity.failing = false
                                             collectionObjectiveActivity.enableButtons()
+
                                         }
+
                                     }
+
                                 }
                                 findNavController().navigate(R.id.action_autoIntakeFragment_to_autoOuttakeFragment)
+
+
                             }
                             .border(
                                 4.dp,

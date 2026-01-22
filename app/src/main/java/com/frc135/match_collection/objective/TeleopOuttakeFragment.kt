@@ -38,7 +38,7 @@ import com.frc135.match_collection.matchTimer
 import com.frc135.match_collection.numActionDrop
 import com.frc135.match_collection.numActionIntakePoach
 import com.frc135.match_collection.numActionProcessor
-import com.frc135.match_collection.numActionScoreAlgae
+//import com.frc135.match_collection.numActionScoreAlgae  (NOT USED)
 import com.frc135.match_collection.numActionScoreAmp
 import com.frc135.match_collection.numActionScoreSpeaker
 import com.frc135.match_collection.numActionScorel1coral
@@ -57,6 +57,16 @@ class TeleopOuttakeFragment : Fragment(R.layout.collection_objective_teleop_frag
     /**
      * The main view of this fragment.
      */
+
+    var numActionScoreAlgae = 0;
+    var numActionScorel2coral = 0;
+
+    var numActionScorel1coral = 0;
+
+    var numActionScorel3coral = 0;
+
+    var numActionScorel4coral = 0;
+
     private var mainView: View? = null
 
     override fun onCreateView(

@@ -90,7 +90,7 @@ class EndgameFragment : Fragment(R.layout.collection_objective_endgame_fragment)
                 and displays one of two images based on your alliance color
                 */
                 Image(
-                    painter = painterResource(id = R.drawable.reef_middle),
+                    painter = painterResource(id = R.drawable.rebuilt_map),
                     contentDescription = "Stage Map",
                     contentScale = ContentScale.Fit,
                     modifier = Modifier.matchParentSize(),

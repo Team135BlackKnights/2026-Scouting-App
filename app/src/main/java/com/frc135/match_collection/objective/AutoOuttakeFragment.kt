@@ -38,15 +38,17 @@ import com.frc135.match_collection.matchTimer
 // Scoring Variables
 
 // Coral Total
-import com.frc135.match_collection.numActionScorel1coralTOTAL
-import com.frc135.match_collection.numActionScorel2coralTOTAL
-import com.frc135.match_collection.numActionScorel3coralTOTAL
-import com.frc135.match_collection.numActionScorel4coralTOTAL
+//import com.frc135.match_collection.numActionScorel1coralTOTAL
+//import com.frc135.match_collection.numActionScorel2coralTOTAL
+//import com.frc135.match_collection.numActionScorel3coralTOTAL
+//import com.frc135.match_collection.numActionScorel4coralTOTAL
 
-import com.frc135.match_collection.numActionScorel1coral
-import com.frc135.match_collection.numActionScorel2coral
-import com.frc135.match_collection.numActionScorel3coral
-import com.frc135.match_collection.numActionScorel4coral
+//import com.frc135.match_collection.numActionScorel1coral
+//import com.frc135.match_collection.numActionScorel2coral
+//import com.frc135.match_collection.numActionScorel3coral
+//import com.frc135.match_collection.numActionScorel4coral
+// commented thses our for now these imports are not being used
+
 
 import com.frc135.match_collection.numActionProcessor
 import com.frc135.match_collection.numActionScoreNet
