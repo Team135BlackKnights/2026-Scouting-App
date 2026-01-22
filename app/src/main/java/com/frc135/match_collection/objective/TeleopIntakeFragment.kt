@@ -55,6 +55,14 @@ class TeleopIntakeFragment : Fragment(R.layout.collection_objective_teleop_fragm
     /**
      * The main view of this fragment.
      */
+
+    var numActionScorel3coral = 0
+    var numActionScorel1coral = 0;
+
+    var  numActionScorel2coral = 0;
+
+    var numActionScorel4coral = 0;
+
     private var mainView: View? = null
 
     override fun onCreateView(
@@ -81,6 +89,7 @@ class TeleopIntakeFragment : Fragment(R.layout.collection_objective_teleop_fragm
             This box contains all the elements that will be displayed, it is rotated based on your orientation.
             The elements within the box are aligned to the left or the right depending on the alliance color.
              */
+
             BoxWithConstraints(
                 contentAlignment = if (allianceColor == AllianceColor.BLUE) Alignment.TopStart else Alignment.TopEnd,
                 modifier = Modifier
@@ -90,14 +99,15 @@ class TeleopIntakeFragment : Fragment(R.layout.collection_objective_teleop_fragm
                 Image(
                     painter = painterResource(
                         id = when {
-                            (allianceColor == AllianceColor.BLUE) -> R.drawable.reef_blue_allience
-                            else -> R.drawable.reef_red_allience
+                            (allianceColor == AllianceColor.BLUE) -> R.drawable.rebuilt_blue_map
+                            else -> R.drawable.rebuilt_red_map
                         }
                     ),
                     contentDescription = "Field Map",
                     contentScale = ContentScale.Fit,
                     modifier = Modifier.matchParentSize(),
                 )
+
 
                 // SCORING BUTTONS
                 /*
@@ -243,6 +253,7 @@ class TeleopIntakeFragment : Fragment(R.layout.collection_objective_teleop_fragm
                             )
                         )
                     }
+
                     //L3 coral Button
                     BoxWithConstraints(
                         modifier = Modifier
@@ -323,11 +334,9 @@ class TeleopIntakeFragment : Fragment(R.layout.collection_objective_teleop_fragm
                                         if (matchTimer != null) {
                                             collectionObjectiveActivity.timelineAddWithStage(
                                                 action_type = Constants.ActionType.L4_CORAL
-                                            )
-                                            if (!collectionObjectiveActivity.failing) numActionScorel4coral++
-
-                                            collectionObjectiveActivity.failing = false
-                                            collectionObjectiveActivity.enableButtons()
+                                                if (!collectionObjectiveActivity.failing) numActionScorel4coral)++
+                                                    collectionObjectiveActivity.failing = false
+                                                    collectionObjectiveActivity.enableButtons()
                                         }
                                     }
                                 }
@@ -524,10 +533,10 @@ class TeleopIntakeFragment : Fragment(R.layout.collection_objective_teleop_fragm
                         if (!collectionObjectiveActivity.failing) {
                             when (actionType) {
 //                                Constants.ActionType.FERRY_DRIVE -> numActionFerryDrive++
-                                Constants.ActionType.L1_CORAL -> numActionScorel1coral++
-                                Constants.ActionType.L2_CORAL -> numActionScorel2coral++
-                                Constants.ActionType.L3_CORAL -> numActionScorel3coral++
-                                Constants.ActionType.L4_CORAL -> numActionScorel4coral++
+                               // Constants.ActionType.L1_CORAL -> numActionScorel1coral++
+                               // Constants.ActionType.L2_CORAL -> numActionScorel2coral++
+                               // Constants.ActionType.L3_CORAL -> numActionScorel3coral++
+                               // Constants.ActionType.L4_CORAL -> numActionScorel4coral++
 //                                Constants.ActionType.FERRY_SHOOT -> numActionFerryShoot++
                                 // Constants.ActionType.DROP -> numActionDrop++
                                 Constants.ActionType.SCORE_ALGAE_PROCESSOR -> numActionScoreAmp++

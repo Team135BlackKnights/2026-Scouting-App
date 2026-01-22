@@ -202,8 +202,8 @@ class StartingPositionObjectiveActivity : CollectionActivity() {
                     */
                     Image(
                         painter = painterResource(
-                            id = if (allianceColor == Constants.AllianceColor.BLUE) R.drawable.reef_blue_allience_start
-                            else R.drawable.reef_red_allience_start
+                            id = if (allianceColor == Constants.AllianceColor.BLUE) R.drawable.rebuilt_blue_map
+                            else R.drawable.rebuilt_red_map
                         ),
                         contentDescription = "FIELD MAP",
                         modifier = Modifier.fillMaxSize()

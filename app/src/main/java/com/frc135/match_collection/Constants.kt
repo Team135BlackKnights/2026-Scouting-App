@@ -9,8 +9,8 @@ class Constants {
         const val NUMBER_OF_ACTIVE_SCOUTS: Int = 6
         const val COMPRESSED_QR_TAG = "QR"
         const val PREVIOUS_SCREEN = "previous_screen"
-        const val VERSION_NUMBER = "1.0.3"
-        const val EVENT_KEY = "2025inmis"
+        const val VERSION_NUMBER = "1.0.4"
+        const val EVENT_KEY = "2026inmis"
 
         /**
          * The previous activity that was visited before this one. This is found by looking for the
@@ -65,6 +65,9 @@ class Constants {
         L4_CORAL,
         FAIL,
         SCORE_NET,
+
+
+
         INTAKE_CORAL_GROUND,
         INTAKE_ALGAE_GROUND,
         INTAKE_LEFT_CORAL,
@@ -84,6 +87,7 @@ class Constants {
         TO_ENDGAME,
 //        SCORE_TRAP,
         LEFT_START
+
     }
 
     enum class Stage {

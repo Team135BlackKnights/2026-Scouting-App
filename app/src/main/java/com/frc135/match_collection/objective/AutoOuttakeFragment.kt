@@ -103,8 +103,8 @@ class AutoOuttakeFragment : Fragment(R.layout.collection_objective_auto_fragment
                 Image(
                     painter = painterResource(
                         id = when {
-                            (allianceColor == AllianceColor.BLUE) -> R.drawable.reef_blue_allience
-                            else -> R.drawable.reef_red_allience
+                            (allianceColor == AllianceColor.BLUE) -> R.drawable.rebuilt_blue_map
+                            else -> R.drawable.rebuilt_red_map
                         }
                     ),
                     contentDescription = "Map with game pieces",

@@ -92,8 +92,8 @@ class TeleopOuttakeFragment : Fragment(R.layout.collection_objective_teleop_frag
                 Image(
                     painter = painterResource(
                         id = when {
-                            (allianceColor == AllianceColor.BLUE) -> R.drawable.reef_blue_allience
-                            else -> R.drawable.reef_red_allience
+                            (allianceColor == AllianceColor.BLUE) -> R.drawable.rebuilt_blue_map
+                            else -> R.drawable.rebuilt_red_map
                         }
                     ),
                     contentDescription = "Field Map",
@@ -728,13 +728,10 @@ class TeleopOuttakeFragment : Fragment(R.layout.collection_objective_teleop_frag
                         collectionObjectiveActivity.timelineAddWithStage(action_type = actionType)
                         if (!collectionObjectiveActivity.failing) {
                             when (actionType) {
-//                                Constants.ActionType.FERRY_DRIVE -> numActionFerryDrive++
                                 Constants.ActionType.L1_CORAL -> numActionScorel1coral++
                                 Constants.ActionType.L2_CORAL -> numActionScorel2coral++
                                 Constants.ActionType.L3_CORAL -> numActionScorel3coral++
                                 Constants.ActionType.L4_CORAL -> numActionScorel4coral++
-//                                Constants.ActionType.FERRY_SHOOT -> numActionFerryShoot++
-                               // Constants.ActionType.DROP -> numActionDrop++
                                 Constants.ActionType.SCORE_ALGAE_PROCESSOR -> numActionScoreAmp++
                                 else -> numActionScoreSpeaker++
                             }

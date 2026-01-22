@@ -40,6 +40,9 @@ import com.frc135.match_collection.cageCenterLevel
 import com.frc135.match_collection.cageBottomLevel
 import kotlinx.android.synthetic.main.collection_objective_endgame_fragment.view.endgame_compose_view
 
+
+
+
 /**
  * [Fragment] used for showing intake buttons in [TeleopOuttakeFragment]
  */
