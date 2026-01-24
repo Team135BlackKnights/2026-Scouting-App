@@ -179,7 +179,7 @@ class AutoOuttakeFragment : Fragment(R.layout.collection_objective_auto_fragment
                                         buttonPressedTime = newPressTime
                                         if (matchTimer != null) {
                                             collectionObjectiveActivity.timelineAddWithStage(
-                                                action_type = Constants.ActionType.L1_CORAL
+                                                action_type = Constants.ActionType.L1_Tower
                                             )
                                             if (!collectionObjectiveActivity.failing) numActionScorel1coral++
 
@@ -237,7 +237,7 @@ class AutoOuttakeFragment : Fragment(R.layout.collection_objective_auto_fragment
                                         buttonPressedTime = newPressTime
                                         if (matchTimer != null) {
                                             collectionObjectiveActivity.timelineAddWithStage(
-                                                action_type = Constants.ActionType.L2_CORAL
+                                                action_type = Constants.ActionType.L2_Tower
                                             )
 //                                            if (!collectionObjectiveActivity.failing) numActionScorel2coral++
 
@@ -294,7 +294,7 @@ class AutoOuttakeFragment : Fragment(R.layout.collection_objective_auto_fragment
                                         buttonPressedTime = newPressTime
                                         if (matchTimer != null) {
                                             collectionObjectiveActivity.timelineAddWithStage(
-                                                action_type = Constants.ActionType.L3_CORAL
+                                                action_type = Constants.ActionType.L3_Tower
                                             )
 //                                            if (!collectionObjectiveActivity.failing) numActionScorel3coral++
 
@@ -339,66 +339,6 @@ class AutoOuttakeFragment : Fragment(R.layout.collection_objective_auto_fragment
                             )
                         )
                     }
-
-                    // L4 Coral Button
-                    BoxWithConstraints(
-                        modifier = Modifier
-                            .size(10 * maxWidth / 200, 15 * maxHeight / 250)
-                            .offset(65 * maxWidth / 100, 59 * maxHeight / 100)
-                            .clickable {
-                                if (collectionObjectiveActivity.isTimerRunning) {
-                                    val newPressTime = System.currentTimeMillis()
-                                    if (buttonPressedTime + 250 < newPressTime) {
-                                        buttonPressedTime = newPressTime
-                                        if (matchTimer != null) {
-                                            collectionObjectiveActivity.timelineAddWithStage(
-                                                action_type = Constants.ActionType.L4_CORAL
-                                            )
-//                                            if (!collectionObjectiveActivity.failing) numActionScorel4coral++
-
-                                            collectionObjectiveActivity.failing = false
-                                            collectionObjectiveActivity.enableButtons()
-                                        }
-                                    }
-                                }
-                            }
-                            .border(
-                                4.dp,
-                                if (!collectionObjectiveActivity.isTimerRunning) Color(
-                                    142,
-                                    142,
-                                    142
-                                ).copy(alpha = 0.6f)
-                                else if (allianceColor == AllianceColor.BLUE) Color(
-                                    30,
-                                    20,
-                                    125
-                                ).copy(alpha = 0.6f)
-                                else Color(125, 20, 20).copy(alpha = 0.6f)
-                            )
-                            .background(
-                                if (!collectionObjectiveActivity.isTimerRunning) Color(
-                                    239,
-                                    239,
-                                    239
-                                ).copy(alpha = 0.6f)
-                                else if (allianceColor == AllianceColor.BLUE) Color.Blue.copy(alpha = 0.6f)
-                                else Color.Red.copy(alpha = 0.6f)
-                            )
-                            .rotate(if (orientation) 0f else 180f),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Text(
-                            text = "erm... this is being reworked!",
-//                            text = "L4: $numActionScorel4coral",
-                            style = TextStyle(
-                                fontWeight = FontWeight.Bold,
-                                color = if (!collectionObjectiveActivity.isTimerRunning) Color.Black else Color.White
-                            )
-                        )
-                    }
-
-
                     // LEAVE BUTTON
 //                    Box(
 //                        modifier = Modifier

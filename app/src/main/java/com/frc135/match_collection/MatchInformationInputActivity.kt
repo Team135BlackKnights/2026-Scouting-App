@@ -705,7 +705,10 @@ class MatchInformationInputActivity : MatchInformationActivity() {
                                     if (collectionMode == Constants.ModeSelection.SUBJECTIVE) {
                                         intent.putExtra("team_one", getEtTeamOne().text.toString())
                                             .putExtra("team_two", getEtTeamTwo()?.text.toString())
-                                            .putExtra("team_three", getEtTeamThree()?.text.toString())
+                                            .putExtra(
+                                                "team_three",
+                                                getEtTeamThree()?.text.toString()
+                                            )
                                     } else {
                                         val teamNum =
                                             fileName.substringAfter("_").substringBefore("_")
@@ -750,64 +753,65 @@ class MatchInformationInputActivity : MatchInformationActivity() {
             )
         }
 
-        getSpinnerAssignMode().onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                val newPressTime = System.currentTimeMillis()
-                if (buttonPressedTime + 250 < newPressTime) {
-                    buttonPressedTime = newPressTime
-                    // Save selected assignment mode into internal storage.
-                    putIntoStorage(
-                        context = this@MatchInformationInputActivity,
-                        key = "assignment_mode",
-                        value = position
-                    )
+        getSpinnerAssignMode().onItemSelectedListener =
+            object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+                    val newPressTime = System.currentTimeMillis()
+                    if (buttonPressedTime + 250 < newPressTime) {
+                        buttonPressedTime = newPressTime
+                        // Save selected assignment mode into internal storage.
+                        putIntoStorage(
+                            context = this@MatchInformationInputActivity,
+                            key = "assignment_mode",
+                            value = position
+                        )
 
-                    // Automatically assign teams if in automatic assignment mode and disable user input.
-                    // Otherwise, enable team number edit texts and alliance color toggles.
-                    if (position == 0) {
-                        assignMode = Constants.AssignmentMode.AUTOMATIC_ASSIGNMENT
-                        if (collectionMode == Constants.ModeSelection.SUBJECTIVE) {
-                            getEtTeamOne().setText("")
-                            getEtTeamTwo()?.setText("")
-                            getEtTeamThree()?.setText("")
+                        // Automatically assign teams if in automatic assignment mode and disable user input.
+                        // Otherwise, enable team number edit texts and alliance color toggles.
+                        if (position == 0) {
+                            assignMode = Constants.AssignmentMode.AUTOMATIC_ASSIGNMENT
+                            if (collectionMode == Constants.ModeSelection.SUBJECTIVE) {
+                                getEtTeamOne().setText("")
+                                getEtTeamTwo()?.setText("")
+                                getEtTeamThree()?.setText("")
 
-                            getEtTeamOne().isEnabled = false
-                            getEtTeamTwo()?.isEnabled = false
-                            getEtTeamThree()?.isEnabled = false
+                                getEtTeamOne().isEnabled = false
+                                getEtTeamTwo()?.isEnabled = false
+                                getEtTeamThree()?.isEnabled = false
+                            } else {
+                                getEtTeamOne().setText("")
+
+                                getEtTeamOne().isEnabled = false
+                                getLeftToggleButton().isEnabled = false
+                                getRightToggleButton().isEnabled = false
+                            }
+                            autoAssignTeamInputsGivenMatch()
                         } else {
-                            getEtTeamOne().setText("")
-
-                            getEtTeamOne().isEnabled = false
-                            getLeftToggleButton().isEnabled = false
-                            getRightToggleButton().isEnabled = false
-                        }
-                        autoAssignTeamInputsGivenMatch()
-                    } else {
-                        assignMode = Constants.AssignmentMode.OVERRIDE
-                        if (collectionMode == Constants.ModeSelection.SUBJECTIVE) {
-                            getEtTeamOne().isEnabled = true
-                            getEtTeamTwo()?.isEnabled = true
-                            getEtTeamThree()?.isEnabled = true
-                        } else {
-                            getEtTeamOne().isEnabled = true
-                        }
-                        if (collectionMode == Constants.ModeSelection.OBJECTIVE) {
-                            getLeftToggleButton().isEnabled = true
-                            getRightToggleButton().isEnabled = true
+                            assignMode = Constants.AssignmentMode.OVERRIDE
+                            if (collectionMode == Constants.ModeSelection.SUBJECTIVE) {
+                                getEtTeamOne().isEnabled = true
+                                getEtTeamTwo()?.isEnabled = true
+                                getEtTeamThree()?.isEnabled = true
+                            } else {
+                                getEtTeamOne().isEnabled = true
+                            }
+                            if (collectionMode == Constants.ModeSelection.OBJECTIVE) {
+                                getLeftToggleButton().isEnabled = true
+                                getRightToggleButton().isEnabled = true
+                            }
                         }
                     }
                 }
-            }
 
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-                assignMode = Constants.AssignmentMode.NONE
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+                    assignMode = Constants.AssignmentMode.NONE
+                }
             }
-        }
     }
 
     // Transition into the next activity and set timestamp for specific match.

@@ -58,13 +58,12 @@ class Constants {
         SCORE_ALGAE_NET,
         SCORE_ALGAE_PROCESSOR,
         ALGAE,
-        SCORE_CORAL,
-        L1_CORAL,
-        L2_CORAL,
-        L3_CORAL,
-        L4_CORAL,
+        outpost,
+        L1_Tower,
+        L2_Tower,
+        L3_Tower,
         FAIL,
-        SCORE_NET,
+        SCORE_Hub,
 
 
 

@@ -139,7 +139,7 @@ class AutoIntakeFragment : Fragment(R.layout.collection_objective_auto_fragment)
                                         buttonPressedTime = newPressTime
                                         if (matchTimer != null) {
                                             collectionObjectiveActivity.timelineAddWithStage(
-                                                action_type = Constants.ActionType.L1_CORAL
+                                                action_type = Constants.ActionType.L1_Tower
                                             )
                                             if (!collectionObjectiveActivity.failing) numActionScorel1coral++
 
@@ -190,7 +190,7 @@ class AutoIntakeFragment : Fragment(R.layout.collection_objective_auto_fragment)
                                         buttonPressedTime = newPressTime
                                         if (matchTimer != null) {
                                             collectionObjectiveActivity.timelineAddWithStage(
-                                                action_type = Constants.ActionType.L2_CORAL
+                                                action_type = Constants.ActionType.L2_Tower
                                             )
                                             if (!collectionObjectiveActivity.failing) numActionScorel2coral++
 
@@ -246,7 +246,7 @@ class AutoIntakeFragment : Fragment(R.layout.collection_objective_auto_fragment)
                                         buttonPressedTime = newPressTime
                                         if (matchTimer != null) {
                                             collectionObjectiveActivity.timelineAddWithStage(
-                                                action_type = Constants.ActionType.L3_CORAL
+                                                action_type = Constants.ActionType.L3_Tower
                                             )
                                             if (!collectionObjectiveActivity.failing) numActionScorel3coral++
 
@@ -290,7 +290,7 @@ class AutoIntakeFragment : Fragment(R.layout.collection_objective_auto_fragment)
                                         buttonPressedTime = newPressTime
                                         if (matchTimer != null) {
                                             collectionObjectiveActivity.timelineAddWithStage(
-                                                action_type = Constants.ActionType.L3_CORAL
+                                                action_type = Constants.ActionType.L3_Tower
                                             )
                                             if (!collectionObjectiveActivity.failing) numActionScorel3coral++
 
@@ -334,7 +334,7 @@ class AutoIntakeFragment : Fragment(R.layout.collection_objective_auto_fragment)
                                         buttonPressedTime = newPressTime
                                         if (matchTimer != null) {
                                             collectionObjectiveActivity.timelineAddWithStage(
-                                                action_type = Constants.ActionType.L3_CORAL
+                                                action_type = Constants.ActionType.L3_Tower
                                             )
                                             if (!collectionObjectiveActivity.failing) numActionScorel3coral++
 
@@ -379,7 +379,7 @@ class AutoIntakeFragment : Fragment(R.layout.collection_objective_auto_fragment)
                                         buttonPressedTime = newPressTime
                                         if (matchTimer != null) {
                                             collectionObjectiveActivity.timelineAddWithStage(
-                                                action_type = Constants.ActionType.L3_CORAL
+                                                action_type = Constants.ActionType.L3_Tower
                                             )
                                             if (!collectionObjectiveActivity.failing) numActionScorel3coral++
 
@@ -423,7 +423,7 @@ class AutoIntakeFragment : Fragment(R.layout.collection_objective_auto_fragment)
                                         buttonPressedTime = newPressTime
                                         if (matchTimer != null) {
                                             collectionObjectiveActivity.timelineAddWithStage(
-                                                action_type = Constants.ActionType.L3_CORAL
+                                                action_type = Constants.ActionType.L3_Tower
                                             )
                                             if (!collectionObjectiveActivity.failing) numActionScorel3coral++
 
@@ -467,7 +467,7 @@ class AutoIntakeFragment : Fragment(R.layout.collection_objective_auto_fragment)
                                         buttonPressedTime = newPressTime
                                         if (matchTimer != null) {
                                             collectionObjectiveActivity.timelineAddWithStage(
-                                                action_type = Constants.ActionType.L3_CORAL
+                                                action_type = Constants.ActionType.L3_Tower
                                             )
                                             if (!collectionObjectiveActivity.failing) numActionScorel3coral++
 

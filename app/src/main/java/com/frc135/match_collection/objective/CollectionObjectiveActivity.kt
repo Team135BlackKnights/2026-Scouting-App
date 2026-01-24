@@ -265,7 +265,7 @@ class CollectionObjectiveActivity : CollectionActivity() {
                     failing = false
                 }
 
-                Constants.ActionType.SCORE_CORAL.toString() -> {
+                Constants.ActionType.SCORE_Hub.toString() -> {
                     if ((
                                 timeline.size >= 2 &&
                                         timeline[timeline.size-2]["action_type"] != Constants.ActionType.FAIL.toString()
@@ -440,7 +440,7 @@ class CollectionObjectiveActivity : CollectionActivity() {
                     failing = false
                 }
 
-                Constants.ActionType.SCORE_CORAL.toString() -> {
+                Constants.ActionType.SCORE_Hub.toString() -> {
                     if ((
                                 timeline.isNotEmpty() &&
                                         timeline.last()["action_type"] != Constants.ActionType.FAIL.toString()

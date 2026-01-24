@@ -59,10 +59,9 @@ class TeleopIntakeFragment : Fragment(R.layout.collection_objective_teleop_fragm
     var numActionScorel3coral = 0
     var numActionScorel1coral = 0;
 
-    var  numActionScorel2coral = 0;
+    var numActionScorel2coral = 0;
 
     var numActionScorel4coral = 0;
-
 
 
     private var mainView: View? = null
@@ -126,12 +125,11 @@ class TeleopIntakeFragment : Fragment(R.layout.collection_objective_teleop_fragm
                     BoxWithConstraints(
 
                         modifier = Modifier
-                            .size(10* maxWidth / 200, 15* maxHeight / 200)
-                            .offset(                  if (allianceColor == AllianceColor.RED) .5 * maxWidth / 16 else -1f * maxHeight / 16,
-                                if (allianceColor == AllianceColor.RED) maxWidth/50  else -1f * maxHeight / 2
+                            .size(10 * maxWidth / 200, 15 * maxHeight / 200)
+                            .offset(
+                                if (allianceColor == AllianceColor.RED) .5 * maxWidth / 16 else -1f * maxHeight / 16,
+                                if (allianceColor == AllianceColor.RED) maxWidth / 50 else -1f * maxHeight / 2
                             )
-
-
 
 
                             .clickable {
@@ -141,7 +139,7 @@ class TeleopIntakeFragment : Fragment(R.layout.collection_objective_teleop_fragm
                                         buttonPressedTime = newPressTime
                                         if (matchTimer != null) {
                                             collectionObjectiveActivity.timelineAddWithStage(
-                                                action_type = Constants.ActionType.L1_CORAL
+                                                action_type = Constants.ActionType.L1_Tower
                                             )
                                             if (!collectionObjectiveActivity.failing) numActionScorel1coral++
 
@@ -198,7 +196,7 @@ class TeleopIntakeFragment : Fragment(R.layout.collection_objective_teleop_fragm
                     //L2 button
                     BoxWithConstraints(
                         modifier = Modifier
-                            .size(10* maxWidth / 200, 15* maxHeight / 200)
+                            .size(10 * maxWidth / 200, 15 * maxHeight / 200)
                             .offset(
                                 if (allianceColor == AllianceColor.BLUE) maxWidth / 32 else -maxWidth / 32,
                                 if (allianceColor == AllianceColor.RED) maxHeight / 32 else -maxHeight / 10
@@ -211,7 +209,7 @@ class TeleopIntakeFragment : Fragment(R.layout.collection_objective_teleop_fragm
                                         buttonPressedTime = newPressTime
                                         if (matchTimer != null) {
                                             collectionObjectiveActivity.timelineAddWithStage(
-                                                action_type = Constants.ActionType.L2_CORAL
+                                                action_type = Constants.ActionType.L2_Tower
                                             )
                                             if (!collectionObjectiveActivity.failing) numActionScorel2coral++
 
@@ -259,7 +257,7 @@ class TeleopIntakeFragment : Fragment(R.layout.collection_objective_teleop_fragm
                     //L3 coral Button
                     BoxWithConstraints(
                         modifier = Modifier
-                            .size(10* maxWidth / 200, 15* maxHeight / 200)
+                            .size(10 * maxWidth / 200, 15 * maxHeight / 200)
                             .offset(maxWidth / 2, maxHeight / 5)
                             // .width(50 * maxWidth / 200)
                             .clickable {
@@ -269,7 +267,7 @@ class TeleopIntakeFragment : Fragment(R.layout.collection_objective_teleop_fragm
                                         buttonPressedTime = newPressTime
                                         if (matchTimer != null) {
                                             collectionObjectiveActivity.timelineAddWithStage(
-                                                action_type = Constants.ActionType.L3_CORAL
+                                                action_type = Constants.ActionType.L3_Tower
                                             )
                                             if (!collectionObjectiveActivity.failing) numActionScorel3coral++
 
@@ -322,56 +320,39 @@ class TeleopIntakeFragment : Fragment(R.layout.collection_objective_teleop_fragm
 
                         }
                     }
-                    //L4 coral Button
+                }
+
                     BoxWithConstraints(
                         modifier = Modifier
-                            .size(10* maxWidth / 200, 15* maxHeight / 200)
-                            .offset(maxWidth / 3, maxHeight / 17)
-                            // .width(50 * maxWidth / 200)
-                            .clickable {
-                                if (collectionObjectiveActivity.isTimerRunning) {
-                                    val newPressTime = System.currentTimeMillis()
-                                    if (buttonPressedTime + 250 < newPressTime) {
-                                        buttonPressedTime = newPressTime
-                                        if (matchTimer != null) {
-
-                                            collectionObjectiveActivity.timelineAddWithStage(
-                                                action_type = Constants.ActionType.L4_CORAL
-                                            )
-
-                                            if (!collectionObjectiveActivity.failing) {
-                                                numActionScorel4coral++
-                                            }
-
-                                            collectionObjectiveActivity.failing = false
-                                            collectionObjectiveActivity.enableButtons()
-                                        }
-
-                                    }
-                                }
-                            }
+                            .fillMaxHeight()
+                            .width(10 * maxWidth / 50)
+                            .offset(
+                                if (allianceColor == AllianceColor.BLUE) 17 * maxWidth / 20 else 10 * maxWidth / -20,
+                                0.dp
+                            )
+                            .clickable {scoringButtonPress(actionType = Constants.ActionType.L3_Tower) }
                             .border(
                                 4.dp,
-                                if (!collectionObjectiveActivity.isTimerRunning) Color(
+                                if (collectionObjectiveActivity.isIncap || collectionObjectiveActivity.failing) Color(
                                     142,
                                     142,
                                     142
                                 ).copy(alpha = 0.6f)
-                                else if (allianceColor == AllianceColor.BLUE) Color(
-                                    30,
-                                    20,
-                                    125
-                                ).copy(alpha = 0.6f)
-                                else Color(125, 20, 20).copy(alpha = 0.6f)
+                                else if (allianceColor == AllianceColor.RED) Color.Blue.copy(alpha = 0.6f)
+                                else Color.Red.copy(alpha = 0.6f)
                             )
                             .background(
-                                if (!collectionObjectiveActivity.isTimerRunning) Color(
+                                if (collectionObjectiveActivity.isIncap || collectionObjectiveActivity.failing) Color(
                                     239,
                                     239,
                                     239
                                 ).copy(alpha = 0.6f)
-                                else if (allianceColor == AllianceColor.BLUE) Color.Blue.copy(alpha = 0.6f)
-                                else Color.Red.copy(alpha = 0.6f)
+                                else if (allianceColor == AllianceColor.RED) Color(
+                                    33,
+                                    150,
+                                    243
+                                ).copy(alpha = 0.6f)
+                                else Color(243, 33, 33).copy(alpha = 0.6f)
                             )
                             .rotate(if (orientation) 0f else 180f),
                         contentAlignment = Alignment.Center
@@ -379,142 +360,84 @@ class TeleopIntakeFragment : Fragment(R.layout.collection_objective_teleop_fragm
                         Column(
                             horizontalAlignment = Alignment.CenterHorizontally,
                             modifier = Modifier.offset(
-                                0.dp,
-                                if (orientation) maxHeight / 4 else maxHeight / -4
+                                if (
+                                    (allianceColor == Constants.AllianceColor.BLUE && orientation) ||
+                                    (allianceColor == Constants.AllianceColor.RED && !orientation)
+                                ) {
+                                    maxWidth / -11
+                                } else maxWidth / 11,
+                                0.dp
                             )
                         ) {
+                            Text(text = "DROP:", style = TextStyle(fontWeight = FontWeight.Bold))
                             Text(
-                                text = "L4: $numActionScorel4coral",
-                                style = TextStyle(
-                                    fontWeight = FontWeight.Bold,
-                                    color = if (!collectionObjectiveActivity.isTimerRunning) Color.Black else Color.White
-                                )
+                                text = "$numActionDrop",
+                                style = TextStyle(fontWeight = FontWeight.Bold)
                             )
-
                         }
                     }
+                    // SCORE ALGAE BUTTON
                 }
 
 
-
-
-
-                BoxWithConstraints(
-                    modifier = Modifier
-                        .fillMaxHeight()
-                        .width(10 * maxWidth / 50)
-                        .offset(
-                            if (allianceColor == AllianceColor.BLUE) 17 * maxWidth / 20 else 10 * maxWidth / -20,
-                            0.dp
-                        )
-                        .clickable { scoringButtonPress(actionType = Constants.ActionType.L3_CORAL) }
-                        .border(
-                            4.dp,
-                            if (collectionObjectiveActivity.isIncap || collectionObjectiveActivity.failing) Color(
-                                142,
-                                142,
-                                142
-                            ).copy(alpha = 0.6f)
-                            else if (allianceColor == AllianceColor.RED) Color.Blue.copy(alpha = 0.6f)
-                            else Color.Red.copy(alpha = 0.6f)
-                        )
-                        .background(
-                            if (collectionObjectiveActivity.isIncap || collectionObjectiveActivity.failing) Color(
-                                239,
-                                239,
-                                239
-                            ).copy(alpha = 0.6f)
-                            else if (allianceColor == AllianceColor.RED) Color(
-                                33,
-                                150,
-                                243
-                            ).copy(alpha = 0.6f)
-                            else Color(243, 33, 33).copy(alpha = 0.6f)
-                        )
-                        .rotate(if (orientation) 0f else 180f),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Column(
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                        modifier = Modifier.offset(
-                            if (
-                                (allianceColor == Constants.AllianceColor.BLUE && orientation) ||
-                                (allianceColor == Constants.AllianceColor.RED && !orientation)
-                            ) {
-                                maxWidth / -11
-                            } else maxWidth / 11,
-                            0.dp
-                        )
-                    ) {
-                        Text(text = "DROP:", style = TextStyle(fontWeight = FontWeight.Bold))
-                        Text(
-                            text = "$numActionDrop",
-                            style = TextStyle(fontWeight = FontWeight.Bold)
-                        )
-                    }
-                }
-                // SCORE ALGAE BUTTON
             }
-
-
         }
-    }
 
 
-    @SuppressLint("ModifierFactoryUnreferencedReceiver")
-    fun Modifier.intakeButtonModifier(
-        actionType: Constants.ActionType,
-        borderColorBlue: Color,
-        borderColorRed: Color,
-        backgroundColorBlue: Color,
-        backgroundColorRed: Color,
-        width: Dp,
-        height: Dp,
-        offsetX: Dp,
-        offsetY: Dp
-    ): Modifier {
-        return size(width, height)
-            .offset(
-                if (allianceColor == Constants.AllianceColor.BLUE) offsetX else -offsetX,
-                offsetY
-            )
-            .clickable { intakeButtonPress(actionType = actionType) }
-            .border(
-                4.dp,
-                if (collectionObjectiveActivity.isIncap) Color(142, 142, 142).copy(alpha = 0.6f)
-                else if (allianceColor == AllianceColor.BLUE) borderColorBlue.copy(alpha = 0.6f)
-                else borderColorRed.copy(alpha = 0.6f)
-            )
-            .background(
-                if (collectionObjectiveActivity.isIncap) Color(239, 239, 239).copy(alpha = 0.6f)
-                else if (allianceColor == AllianceColor.BLUE) backgroundColorBlue.copy(alpha = 0.6f)
-                else backgroundColorRed.copy(alpha = 0.6f)
-            )
-            .rotate(if (orientation) 0f else 180f)
-    }
+        @SuppressLint("ModifierFactoryUnreferencedReceiver")
+        fun Modifier.intakeButtonModifier(
+            actionType: Constants.ActionType,
+            borderColorBlue: Color,
+            borderColorRed: Color,
+            backgroundColorBlue: Color,
+            backgroundColorRed: Color,
+            width: Dp,
+            height: Dp,
+            offsetX: Dp,
+            offsetY: Dp
+        ): Modifier {
+            return size(width, height)
+                .offset(
+                    if (allianceColor == Constants.AllianceColor.BLUE) offsetX else -offsetX,
+                    offsetY
+                )
+                .clickable {intakeButtonPress(actionType = actionType) }
+                .border(
+                    4.dp,
+                    if (collectionObjectiveActivity.isIncap) Color(142, 142, 142).copy(alpha = 0.6f)
+                    else if (allianceColor == AllianceColor.BLUE) borderColorBlue.copy(alpha = 0.6f)
+                    else borderColorRed.copy(alpha = 0.6f)
+                )
+                .background(
+                    if (collectionObjectiveActivity.isIncap) Color(239, 239, 239).copy(alpha = 0.6f)
+                    else if (allianceColor == AllianceColor.BLUE) backgroundColorBlue.copy(alpha = 0.6f)
+                    else backgroundColorRed.copy(alpha = 0.6f)
+                )
+                .rotate(if (orientation) 0f else 180f)
+        }
 
 
-     fun intakeButtonPress(actionType: Constants.ActionType) {
-        if (!collectionObjectiveActivity.isIncap) {
-            val newPressTime = System.currentTimeMillis()
-            if (buttonPressedTime + 250 < newPressTime) {
-                buttonPressedTime = newPressTime
-                if (matchTimer != null) {
-                    collectionObjectiveActivity.timelineAddWithStage(action_type = actionType)
-                    when (actionType) {
+        fun intakeButtonPress(actionType: Constants.ActionType) {
+            if (!collectionObjectiveActivity.isIncap) {
+                val newPressTime = System.currentTimeMillis()
+                if (buttonPressedTime + 250 < newPressTime) {
+                    buttonPressedTime = newPressTime
+                    if (matchTimer != null) {
+                        collectionObjectiveActivity.timelineAddWithStage(action_type = actionType)
+                        when (actionType) {
 //                        Constants.ActionType.INTAKE_AMP -> numActionIntakeAmp++
 //                        Constants.ActionType.INTAKE_FAR -> numActionIntakeFar++
 //                        Constants.ActionType.INTAKE_CENTER -> numActionIntakeCenter++
-                        else -> numActionIntakePoach++
+                            else -> numActionIntakePoach++
+                        }
+                        scoring = true
+                        collectionObjectiveActivity.enableButtons()
                     }
-                    scoring = true
-                    collectionObjectiveActivity.enableButtons()
                 }
             }
         }
-    }
 
-    /*
+        /*
     When a scoring button is clicked, it calls this function.
     If they are not incap and if either they aren't failing or they are
     pressing the speaker, or amp button, then:
@@ -522,42 +445,42 @@ class TeleopIntakeFragment : Fragment(R.layout.collection_objective_teleop_fragm
     if they are not failing the score, then switches to intaking and
     enables buttons.
      */
-     fun scoringButtonPress(actionType: Constants.ActionType) {
-        if (!collectionObjectiveActivity.isIncap) {
-            if (
-                !collectionObjectiveActivity.failing ||
-                actionType == Constants.ActionType.L1_CORAL ||
-                actionType == Constants.ActionType.L2_CORAL ||
-                actionType == Constants.ActionType.L3_CORAL ||
-                actionType == Constants.ActionType.L4_CORAL
+        fun scoringButtonPress(actionType: Constants.ActionType) {
+            if (!collectionObjectiveActivity.isIncap) {
+                if (
+                    !collectionObjectiveActivity.failing ||
+                    actionType == Constants.ActionType.L1_Tower ||
+                    actionType == Constants.ActionType.L2_Tower ||
+                    actionType == Constants.ActionType.L3_Tower
+
 //                actionType == Constants.ActionType.SCORE_CORAL ||
 //                actionType == Constants.ActionType.SCORE_ALGAE_PROCESSOR // ||
 //                actionType == Constants.ActionType.FERRY_SHOOT
-            ) {
-                val newPressTime = System.currentTimeMillis()
-                if (buttonPressedTime + 250 < newPressTime) {
-                    buttonPressedTime = newPressTime
-                    if (matchTimer != null) {
-                        collectionObjectiveActivity.timelineAddWithStage(action_type = actionType)
-                        if (!collectionObjectiveActivity.failing) {
-                            when (actionType) {
+                ) {
+                    val newPressTime = System.currentTimeMillis()
+                    if (buttonPressedTime + 250 < newPressTime) {
+                        buttonPressedTime = newPressTime
+                        if (matchTimer != null) {
+                            collectionObjectiveActivity.timelineAddWithStage(action_type = actionType)
+                            if (!collectionObjectiveActivity.failing) {
+                                when (actionType) {
 //                                Constants.ActionType.FERRY_DRIVE -> numActionFerryDrive++
-                               // Constants.ActionType.L1_CORAL -> numActionScorel1coral++
-                               // Constants.ActionType.L2_CORAL -> numActionScorel2coral++
-                               // Constants.ActionType.L3_CORAL -> numActionScorel3coral++
-                               // Constants.ActionType.L4_CORAL -> numActionScorel4coral++
+                                    // Constants.ActionType.L1_CORAL -> numActionScorel1coral++
+                                    // Constants.ActionType.L2_CORAL -> numActionScorel2coral++
+                                    // Constants.ActionType.L3_CORAL -> numActionScorel3coral++
+                                    // Constants.ActionType.L4_CORAL -> numActionScorel4coral++
 //                                Constants.ActionType.FERRY_SHOOT -> numActionFerryShoot++
-                                // Constants.ActionType.DROP -> numActionDrop++
-                                Constants.ActionType.SCORE_ALGAE_PROCESSOR -> numActionScoreAmp++
-                                else -> numActionScoreSpeaker++
+                                    // Constants.ActionType.DROP -> numActionDrop++
+                                    Constants.ActionType.SCORE_ALGAE_PROCESSOR -> numActionScoreAmp++
+                                    else -> numActionScoreSpeaker++
+                                }
                             }
+                            collectionObjectiveActivity.failing = false
+                            scoring = false
+                            collectionObjectiveActivity.enableButtons()
                         }
-                        collectionObjectiveActivity.failing = false
-                        scoring = false
-                        collectionObjectiveActivity.enableButtons()
                     }
                 }
             }
         }
     }
-}
