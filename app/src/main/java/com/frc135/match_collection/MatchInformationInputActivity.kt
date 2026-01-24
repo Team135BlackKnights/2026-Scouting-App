@@ -848,11 +848,13 @@ class MatchInformationInputActivity : MatchInformationActivity() {
         getBtnProceedMatchStart().setOnClickListener { view ->
             val newPressTime = System.currentTimeMillis()
             if (buttonPressedTime + 250 < newPressTime) {
-                buttonPressedTime = newPressTime
-                if (safetyCheck(view = view, "match_information_input_activity")) {
+                buttonPressedTime = newPressTime;
+
+                if (safetyCheck(view = view , currentScreen = "match_information_input_activity")) {
                     startMatchActivity()
                 }
-                //commented this off for now just struggling to fix this bug
+
+
             }
         }
     }

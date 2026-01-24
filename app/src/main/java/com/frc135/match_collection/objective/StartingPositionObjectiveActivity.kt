@@ -52,6 +52,7 @@ import kotlinx.android.synthetic.main.starting_position_activity.compose_map
 import kotlinx.android.synthetic.main.starting_position_activity.toggle_preload
 import kotlinx.android.synthetic.main.starting_position_activity.tv_pos_team_number
 
+
 class StartingPositionObjectiveActivity : CollectionActivity() {
 
     @SuppressLint("ResourceAsColor")
@@ -130,7 +131,7 @@ class StartingPositionObjectiveActivity : CollectionActivity() {
                             Intent(this, MatchInformationInputActivity::class.java)
                                 .putExtra("team_one", teamNumber)
                                 .putExtra(
-                                    PREVIOUS_SCREEN,
+                                     PREVIOUS_SCREEN,
                                     Constants.Screens.STARTING_POSITION_OBJECTIVE
                                 ),
                             ActivityOptions.makeSceneTransitionAnimation(this).toBundle()

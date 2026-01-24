@@ -225,9 +225,7 @@ class EndgameFragment : Fragment(R.layout.collection_objective_endgame_fragment)
                         if (allianceColor == AllianceColor.BLUE) 4.75 * maxHeight / 16 else 12.75 * maxHeight / 16
                     )
                 )
-
             }
         }
-
     }
 }

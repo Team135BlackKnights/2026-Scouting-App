@@ -60,6 +60,7 @@ import kotlinx.android.synthetic.main.collection_objective_auto_fragment.view.au
 
 
 
+
 /**
  * [Fragment] used for showing intake buttons in [AutoOuttakeFragment]
  */
@@ -69,7 +70,7 @@ class AutoOuttakeFragment : Fragment(R.layout.collection_objective_auto_fragment
      * The main view of this fragment.
      *
      */
-
+    var  numActionScorel1coral = 0;
     private var mainView: View? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -113,6 +114,8 @@ class AutoOuttakeFragment : Fragment(R.layout.collection_objective_auto_fragment
                         }
                     ),
                     contentDescription = "Map with game pieces",
+
+
                     contentScale = ContentScale.Fit,
                     modifier = Modifier.matchParentSize(),
                 )
@@ -139,13 +142,13 @@ class AutoOuttakeFragment : Fragment(R.layout.collection_objective_auto_fragment
                                 collectionObjectiveActivity.enableButtons()
                             println("Toggling Scoring: $scoring")
 
-//                            if (allianceColor == AllianceColor.BLUE)
-//                                allianceColor = AllianceColor.RED
-//                            if (allianceColor == AllianceColor.RED)
-//                                allianceColor = AllianceColor.BLUE
-//
-//
-//
+                            if (allianceColor == AllianceColor.BLUE)
+                                allianceColor = AllianceColor.RED
+                            if (allianceColor == AllianceColor.RED)
+                                allianceColor = AllianceColor.BLUE
+
+
+
                         }
                         .border(
                             4.dp,
@@ -178,7 +181,7 @@ class AutoOuttakeFragment : Fragment(R.layout.collection_objective_auto_fragment
                                             collectionObjectiveActivity.timelineAddWithStage(
                                                 action_type = Constants.ActionType.L1_CORAL
                                             )
-//                                            if (!collectionObjectiveActivity.failing) numActionScorel1coral++
+                                            if (!collectionObjectiveActivity.failing) numActionScorel1coral++
 
                                             collectionObjectiveActivity.failing = false
                                             collectionObjectiveActivity.enableButtons()
