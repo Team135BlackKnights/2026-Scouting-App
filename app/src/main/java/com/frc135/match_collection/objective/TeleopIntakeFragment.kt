@@ -63,6 +63,8 @@ class TeleopIntakeFragment : Fragment(R.layout.collection_objective_teleop_fragm
 
     var numActionScorel4coral = 0;
 
+
+
     private var mainView: View? = null
 
     override fun onCreateView(
@@ -332,12 +334,19 @@ class TeleopIntakeFragment : Fragment(R.layout.collection_objective_teleop_fragm
                                     if (buttonPressedTime + 250 < newPressTime) {
                                         buttonPressedTime = newPressTime
                                         if (matchTimer != null) {
+
                                             collectionObjectiveActivity.timelineAddWithStage(
                                                 action_type = Constants.ActionType.L4_CORAL
-                                                if (!collectionObjectiveActivity.failing) numActionScorel4coral)++
-                                                    collectionObjectiveActivity.failing = false
-                                                    collectionObjectiveActivity.enableButtons()
+                                            )
+
+                                            if (!collectionObjectiveActivity.failing) {
+                                                numActionScorel4coral++
+                                            }
+
+                                            collectionObjectiveActivity.failing = false
+                                            collectionObjectiveActivity.enableButtons()
                                         }
+
                                     }
                                 }
                             }

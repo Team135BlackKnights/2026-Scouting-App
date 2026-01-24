@@ -37,6 +37,7 @@ import com.frc135.match_collection.buttonPressedTime
 import com.frc135.match_collection.matchTimer
 import com.frc135.match_collection.databinding.CollectionObjectiveAutoFragmentBinding
 
+
 // Scoring Variables
 import com.frc135.match_collection.numActionScorel1coral
 import com.frc135.match_collection.numActionScorel2coral
@@ -150,7 +151,7 @@ class AutoIntakeFragment : Fragment(R.layout.collection_objective_auto_fragment)
                                     }
 
                                 }
-                                findNavController().navigate(R.id.action_autoIntakeFragment_to_autoOuttakeFragment)
+                             //   findNavController().navigate(R.id.action_autoIntakeFragment_to_autoOuttakeFragment)
 
 
                             }

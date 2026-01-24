@@ -35,6 +35,7 @@ import com.frc135.match_collection.autoIntakeList
 import com.frc135.match_collection.buttonPressedTime
 import com.frc135.match_collection.matchTimer
 
+
 // Scoring Variables
 
 // Coral Total
@@ -56,6 +57,8 @@ import com.frc135.match_collection.numActionScoreNet
 import com.frc135.match_collection.orientation
 import com.frc135.match_collection.scoring
 import kotlinx.android.synthetic.main.collection_objective_auto_fragment.view.auto_compose_view
+
+
 
 /**
  * [Fragment] used for showing intake buttons in [AutoOuttakeFragment]
@@ -392,212 +395,8 @@ class AutoOuttakeFragment : Fragment(R.layout.collection_objective_auto_fragment
                         )
                     }
 
-                    //prossesor button
-                    BoxWithConstraints(
-                        modifier = Modifier
-                            .size(50 * maxWidth / 200, 25 * maxHeight / 200)
-                            .offset(0.55 * maxWidth, maxHeight / 200)
 
-                            // .width(50 * maxWidth / 200)
-                            .clickable {
-                                if (collectionObjectiveActivity.isTimerRunning) {
-                                    val newPressTime = System.currentTimeMillis()
-                                    if (buttonPressedTime + 250 < newPressTime) {
-                                        buttonPressedTime = newPressTime
-                                        if (matchTimer != null) {
-                                            collectionObjectiveActivity.timelineAddWithStage(
-                                                action_type = Constants.ActionType.SCORE_ALGAE_PROCESSOR
-                                            )
-                                            if (!collectionObjectiveActivity.failing) numActionProcessor++
-
-                                            collectionObjectiveActivity.failing = false
-                                            collectionObjectiveActivity.enableButtons()
-                                        }
-                                    }
-                                }
-                            }
-                            .border(
-                                4.dp,
-                                if (!collectionObjectiveActivity.isTimerRunning) Color(
-                                    142,
-                                    142,
-                                    142
-                                ).copy(alpha = 0.6f)
-                                else if (allianceColor == AllianceColor.BLUE) Color(
-                                    30,
-                                    20,
-                                    125
-                                ).copy(alpha = 0.6f)
-                                else Color(125, 20, 20).copy(alpha = 0.6f)
-                            )
-                            .background(
-                                if (!collectionObjectiveActivity.isTimerRunning) Color(
-                                    239,
-                                    239,
-                                    239
-                                ).copy(alpha = 0.6f)
-                                else if (allianceColor == AllianceColor.BLUE) Color.Blue.copy(alpha = 0.6f)
-                                else Color.Red.copy(alpha = 0.6f)
-                            )
-                            .rotate(if (orientation) 0f else 180f),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Column(
-                            horizontalAlignment = Alignment.CenterHorizontally,
-                            modifier = Modifier.offset(
-                                0.dp,
-                                if (orientation) maxHeight / 4 else maxHeight / -4
-                            )
-                        ) {
-                            Text(
-                                text = "Prossesser Button: $numActionProcessor",
-                                style = TextStyle(
-                                    fontWeight = FontWeight.Bold,
-                                    color = if (!collectionObjectiveActivity.isTimerRunning) Color.Black else Color.White
-                                )
-                            )
-
-                        }
-                    }
-
-
-                    BoxWithConstraints(
-                        modifier = Modifier
-                            .size(50 * maxWidth / 280, 25 * maxHeight / 200)
-                            .offset(0.45 * maxWidth, 0.55 * maxHeight / 2)
-
-                            // .width(50 * maxWidth / 200)
-                            .clickable {
-                                if (collectionObjectiveActivity.isTimerRunning) {
-                                    val newPressTime = System.currentTimeMillis()
-                                    if (buttonPressedTime + 250 < newPressTime) {
-                                        buttonPressedTime = newPressTime
-                                        if (matchTimer != null) {
-                                            collectionObjectiveActivity.timelineAddWithStage(
-                                                action_type = Constants.ActionType.SCORE_ALGAE_PROCESSOR
-                                            )
-                                            if (!collectionObjectiveActivity.failing) numActionProcessor++
-
-                                            collectionObjectiveActivity.failing = false
-                                            collectionObjectiveActivity.enableButtons()
-                                        }
-                                    }
-                                }
-                            }
-                            .border(
-                                4.dp,
-                                if (!collectionObjectiveActivity.isTimerRunning) Color(
-                                    142,
-                                    142,
-                                    142
-                                ).copy(alpha = 0.6f)
-                                else if (allianceColor == AllianceColor.BLUE) Color(
-                                    30,
-                                    20,
-                                    125
-                                ).copy(alpha = 0.6f)
-                                else Color(125, 20, 20).copy(alpha = 0.6f)
-                            )
-                            .background(
-                                if (!collectionObjectiveActivity.isTimerRunning) Color(
-                                    239,
-                                    239,
-                                    239
-                                ).copy(alpha = 0.6f)
-                                else if (allianceColor == AllianceColor.BLUE) Color.Blue.copy(alpha = 0.6f)
-                                else Color.Red.copy(alpha = 0.6f)
-                            )
-                            .rotate(if (orientation) 0f else 180f),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Column(
-                            horizontalAlignment = Alignment.CenterHorizontally,
-                            modifier = Modifier.offset(
-                                0.dp,
-                                if (orientation) maxHeight / 4 else maxHeight / -4
-                            )
-                        ) {
-                            Text(
-                                text = "erm... this is being reworked!",
-//                                text = "Algea: $numActionProcessor",
-                                style = TextStyle(
-                                    fontWeight = FontWeight.Bold,
-                                    color = if (!collectionObjectiveActivity.isTimerRunning) Color.Black else Color.White
-                                )
-                            )
-
-                        }
-                    }
-                    BoxWithConstraints(
-                        modifier = Modifier
-                            .size(50 * maxWidth / 280, 25 * maxHeight / 200)
-                            .offset(0.7 * maxWidth, 0.5 * maxHeight)
-
-
-                            // .width(50 * maxWidth / 200)
-                            .clickable {
-                                if (collectionObjectiveActivity.isTimerRunning) {
-                                    val newPressTime = System.currentTimeMillis()
-                                    if (buttonPressedTime + 250 < newPressTime) {
-                                        buttonPressedTime = newPressTime
-                                        if (matchTimer != null) {
-                                            collectionObjectiveActivity.timelineAddWithStage(
-                                                action_type = Constants.ActionType.SCORE_NET
-                                            )
-                                            if (!collectionObjectiveActivity.failing) numActionScoreNet++
-
-                                            collectionObjectiveActivity.failing = false
-                                            collectionObjectiveActivity.enableButtons()
-                                        }
-                                    }
-                                }
-                            }
-                            .border(
-                                4.dp,
-                                if (!collectionObjectiveActivity.isTimerRunning) Color(
-                                    142,
-                                    142,
-                                    142
-                                ).copy(alpha = 0.6f)
-                                else if (allianceColor == AllianceColor.BLUE) Color(
-                                    30,
-                                    20,
-                                    125
-                                ).copy(alpha = 0.6f)
-                                else Color(125, 20, 20).copy(alpha = 0.6f)
-                            )
-                            .background(
-                                if (!collectionObjectiveActivity.isTimerRunning) Color(
-                                    239,
-                                    239,
-                                    239
-                                ).copy(alpha = 0.6f)
-                                else if (allianceColor == AllianceColor.BLUE) Color.Blue.copy(alpha = 0.6f)
-                                else Color.Red.copy(alpha = 0.6f)
-                            )
-                            .rotate(if (orientation) 0f else 180f),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Column(
-                            horizontalAlignment = Alignment.CenterHorizontally,
-                            modifier = Modifier.offset(
-                                0.dp,
-                                if (orientation) maxHeight / 4 else maxHeight / -4
-                            )
-                        ) {
-                            Text(
-                                text = "Net Score: $numActionScoreNet",
-                                style = TextStyle(
-                                    fontWeight = FontWeight.Bold,
-                                    color = if (!collectionObjectiveActivity.isTimerRunning) Color.Black else Color.White
-                                )
-                            )
-                        }
-                    }
-                }
-
-
-                // LEAVE BUTTON
+                    // LEAVE BUTTON
 //                    Box(
 //                        modifier = Modifier
 //                            .size(10 * maxWidth / 200, maxHeight / 150)
@@ -654,7 +453,7 @@ class AutoOuttakeFragment : Fragment(R.layout.collection_objective_auto_fragment
 //                            )
 //                        )
 //                    }
-                // SPEAKER BUTTON
+                    // SPEAKER BUTTON
 //                    if (scoring) {
 //                        //L4 coral Button
 //                        BoxWithConstraints(
@@ -793,9 +592,9 @@ class AutoOuttakeFragment : Fragment(R.layout.collection_objective_auto_fragment
 //                    }
 //                }
 //            }
-            }
+                }
 
-            /*
+                /*
     When a intake button is clicked, adds the action to the timeline,
     adds to the count for that action, then switches to scoring and
     enables buttons.
@@ -804,56 +603,59 @@ class AutoOuttakeFragment : Fragment(R.layout.collection_objective_auto_fragment
     on the orientation so that they are not upside down for certain
     orientations.
      */
-            @Composable
-            fun AutoIntakeButton(
-                intakeNum: Int,
-                actionType: Constants.ActionType,
-                modifier: Modifier
-            ) {
-                Box(
-                    modifier = modifier
-                        .fillMaxWidth()
-                        .clickable {
-                            if (!autoIntakeList[intakeNum] && collectionObjectiveActivity.isTimerRunning) {
-                                val newPressTime = System.currentTimeMillis()
-                                if (buttonPressedTime + 250 < newPressTime) {
-                                    buttonPressedTime = newPressTime
-                                    if (matchTimer != null) {
-                                        autoIntakeList =
-                                            autoIntakeList
-                                                .toMutableList()
-                                                .apply { set(intakeNum, true) }
-                                        collectionObjectiveActivity.timelineAddWithStage(action_type = actionType)
-                                        scoring = true
-                                        collectionObjectiveActivity.enableButtons()
+                @Composable
+                fun AutoIntakeButton(
+                    intakeNum: Int,
+                    actionType: Constants.ActionType,
+                    modifier: Modifier
+                ) {
+                    Box(
+                        modifier = modifier
+                            .fillMaxWidth()
+                            .clickable {
+                                if (!autoIntakeList[intakeNum] && collectionObjectiveActivity.isTimerRunning) {
+                                    val newPressTime = System.currentTimeMillis()
+                                    if (buttonPressedTime + 250 < newPressTime) {
+                                        buttonPressedTime = newPressTime
+                                        if (matchTimer != null) {
+                                            autoIntakeList =
+                                                autoIntakeList
+                                                    .toMutableList()
+                                                    .apply { set(intakeNum, true) }
+                                            collectionObjectiveActivity.timelineAddWithStage(
+                                                action_type = actionType
+                                            )
+                                            scoring = true
+                                            collectionObjectiveActivity.enableButtons()
+                                        }
                                     }
                                 }
                             }
-                        }
-                        .border(
-                            4.dp,
-                            if (autoIntakeList[intakeNum] || !collectionObjectiveActivity.isTimerRunning) Color(
-                                142,
-                                142,
-                                142
-                            ).copy(alpha = 0.6f)
-                            else Color(255, 87, 34).copy(alpha = 0.6f)
+                            .border(
+                                4.dp,
+                                if (autoIntakeList[intakeNum] || !collectionObjectiveActivity.isTimerRunning) Color(
+                                    142,
+                                    142,
+                                    142
+                                ).copy(alpha = 0.6f)
+                                else Color(255, 87, 34).copy(alpha = 0.6f)
+                            )
+                            .background(
+                                if (autoIntakeList[intakeNum] || !collectionObjectiveActivity.isTimerRunning) Color(
+                                    239,
+                                    239,
+                                    239
+                                ).copy(alpha = 0.6f)
+                                else Color(255, 152, 0).copy(alpha = 0.6f)
+                            )
+                            .rotate(if (orientation) 0f else 180f),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Text(
+                            text = if (autoIntakeList[intakeNum]) "TAKEN" else "${intakeNum + 1}",
+                            style = TextStyle(fontWeight = FontWeight.Bold)
                         )
-                        .background(
-                            if (autoIntakeList[intakeNum] || !collectionObjectiveActivity.isTimerRunning) Color(
-                                239,
-                                239,
-                                239
-                            ).copy(alpha = 0.6f)
-                            else Color(255, 152, 0).copy(alpha = 0.6f)
-                        )
-                        .rotate(if (orientation) 0f else 180f),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Text(
-                        text = if (autoIntakeList[intakeNum]) "TAKEN" else "${intakeNum + 1}",
-                        style = TextStyle(fontWeight = FontWeight.Bold)
-                    )
+                    }
                 }
             }
         }
