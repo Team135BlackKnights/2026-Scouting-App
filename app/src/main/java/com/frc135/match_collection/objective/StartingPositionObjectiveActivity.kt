@@ -116,6 +116,7 @@ class StartingPositionObjectiveActivity : CollectionActivity() {
         }
     }
 
+
     /**
      * Show dialog to restart from [MatchInformationInputActivity] when back button is long pressed.
      */
@@ -131,7 +132,7 @@ class StartingPositionObjectiveActivity : CollectionActivity() {
                             Intent(this, MatchInformationInputActivity::class.java)
                                 .putExtra("team_one", teamNumber)
                                 .putExtra(
-                                     PREVIOUS_SCREEN,
+                                    PREVIOUS_SCREEN,
                                     Constants.Screens.STARTING_POSITION_OBJECTIVE
                                 ),
                             ActivityOptions.makeSceneTransitionAnimation(this).toBundle()

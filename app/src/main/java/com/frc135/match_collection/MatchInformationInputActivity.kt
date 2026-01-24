@@ -846,7 +846,6 @@ class MatchInformationInputActivity : MatchInformationActivity() {
             )
         }
     }
-
     // Initialize the onClickListener for the proceed button to go the next screen if inputs pass safety checks.
     private fun initProceedButton() {
         getBtnProceedMatchStart().setOnClickListener { view ->
@@ -854,7 +853,7 @@ class MatchInformationInputActivity : MatchInformationActivity() {
             if (buttonPressedTime + 250 < newPressTime) {
                 buttonPressedTime = newPressTime;
 
-                if (safetyCheck(view = view , currentScreen = "match_information_input_activity")) {
+                if (safetyCheck(view = view, currentScreen = "match_information_input_activity")) {
                     startMatchActivity()
                 }
 

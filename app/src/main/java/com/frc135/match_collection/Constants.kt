@@ -52,6 +52,10 @@ class Constants {
         D, // DEEP
         S, // SHALLOW
 
+        FN, //third level tower on
+
+        FL // thirs level tower failed
+
     }
 
     enum class ActionType {

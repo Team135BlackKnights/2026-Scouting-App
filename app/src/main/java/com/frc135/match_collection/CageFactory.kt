@@ -48,6 +48,8 @@ object CageFactory {
                             Constants.StageLevel.DF -> onStageLevelChange(Constants.StageLevel.S)
                             Constants.StageLevel.S -> onStageLevelChange(Constants.StageLevel.SF)
                             Constants.StageLevel.SF -> onStageLevelChange(Constants.StageLevel.N)
+                            Constants.StageLevel.FN -> onStageLevelChange(Constants.StageLevel.FN)
+                            Constants.StageLevel.FL -> onStageLevelChange(Constants.StageLevel.FL)
                         }
                     }
                 }
@@ -75,6 +77,8 @@ object CageFactory {
             Constants.StageLevel.DF -> Color(125, 20, 20).copy(alpha = 0.6f)
             Constants.StageLevel.S -> Color(200, 200, 50).copy(alpha = 0.6f) // Shallow On
             Constants.StageLevel.SF -> Color(150, 50, 50).copy(alpha = 0.6f) // Shallow Fail
+            Constants.StageLevel.FN -> Color(150, 50, 50).copy(alpha = 0.6f)
+            Constants.StageLevel.FL -> Color(150, 50, 50).copy(alpha = 0.6f)
             else -> Color(255, 87, 34).copy(alpha = 0.6f)
         }
     }
@@ -85,16 +89,21 @@ object CageFactory {
             Constants.StageLevel.DF -> Color.Red.copy(alpha = 0.6f)
             Constants.StageLevel.S -> Color.Yellow.copy(alpha = 0.6f)
             Constants.StageLevel.SF -> Color.DarkGray.copy(alpha = 0.6f)
+            Constants.StageLevel.FN -> Color.Blue.copy(alpha = 0.6f)//tower level three
+            Constants.StageLevel.FL -> Color.Blue.copy(alpha = 0.6f)
             else -> Color(255, 152, 0).copy(alpha = 0.6f)
         }
     }
 
     private fun getStageText(stageLevel: Constants.StageLevel): String {
         return when (stageLevel) {
-            Constants.StageLevel.S -> "SHALLOW ON"
-            Constants.StageLevel.SF -> "SHALLOW FAILED"
-            Constants.StageLevel.D -> "DEEP ON"
-            Constants.StageLevel.DF -> "DEEP FAILED"
+            Constants.StageLevel.S -> "L1 Tower ON"
+            Constants.StageLevel.SF -> " L1 Tower FAILED"
+            Constants.StageLevel.D -> "L2 Tower ON"
+            Constants.StageLevel.DF -> "L2 Tower FAILED"
+            Constants.StageLevel.FN -> "L3 Tower ON"
+            Constants.StageLevel.FL -> "L3 Tower FAILED"
+
             else -> "$name CAGE"
         }
     }

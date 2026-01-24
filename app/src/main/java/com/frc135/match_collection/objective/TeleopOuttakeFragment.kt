@@ -652,9 +652,9 @@ class TeleopOuttakeFragment : Fragment(R.layout.collection_objective_teleop_frag
                     actionType == Constants.ActionType.L3_Tower
 
 
-//                actionType == Constants.ActionType.SCORE_CORAL ||
-//                actionType == Constants.ActionType.SCORE_ALGAE_PROCESSOR // ||
-//                actionType == Constants.ActionType.FERRY_SHOOT
+         //       actionType == Constants.ActionType.SCORE_CORAL ||
+       //         actionType == Constants.ActionType.SCORE_ALGAE_PROCESSOR // ||
+     //           actionType == Constants.ActionType.FERRY_SHOOT
                 ) {
                     val newPressTime = System.currentTimeMillis()
                     if (buttonPressedTime + 250 < newPressTime) {
