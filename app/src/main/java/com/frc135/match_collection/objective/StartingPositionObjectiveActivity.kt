@@ -50,12 +50,14 @@ import com.frc135.match_collection.startingPosition
 import com.frc135.match_collection.teamNumber
 
 
+import  androidx.compose.ui.graphics.Color
 
 
 class StartingPositionObjectiveActivity : CollectionActivity() {
 
 
     private lateinit var binding: StartingPositionActivityBinding
+
     @SuppressLint("ResourceAsColor")
     private fun initOnClicks() {
 
@@ -167,7 +169,7 @@ class StartingPositionObjectiveActivity : CollectionActivity() {
         setContentView(binding.root)
 
 
-        binding.composeMap.setContent { MapContent() }
+        //binding.composeMap.setContent { MapContent() }
 
 
         if (previousScreen == Constants.Screens.MATCH_INFORMATION_INPUT) {
@@ -203,7 +205,7 @@ class StartingPositionObjectiveActivity : CollectionActivity() {
         resetCollectionReferences()
         initOnClicks()
     }
-
+}
 
     @Composable
     fun MapContent() {
@@ -218,7 +220,7 @@ class StartingPositionObjectiveActivity : CollectionActivity() {
                     modifier = Modifier
                         .fillMaxWidth()
                         .weight(1f)
-                        .rotate(if (orientation) 0f else 180f)
+                       .rotate(if (orientation) 0f else 180f)
                 ) {
                     Image(
                         painter = painterResource(
@@ -247,7 +249,7 @@ class StartingPositionObjectiveActivity : CollectionActivity() {
                                 .clickable {
                                     val newPressTime = System.currentTimeMillis()
                                     if (buttonPressedTime + 250 < newPressTime) {
-                                        buttonPressedTime = newPressTime
+                                       buttonPressedTime = newPressTime
                                         startingPosition = 4
                                         toggle_preload.isEnabled = true
                                         btn_no_show.setBackgroundColor(getColor(R.color.light_gray))
@@ -384,5 +386,5 @@ class StartingPositionObjectiveActivity : CollectionActivity() {
                 }
             }
         }
-    }
-}
+   }
+
