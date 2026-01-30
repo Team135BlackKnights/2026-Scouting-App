@@ -47,7 +47,7 @@ import com.frc135.match_collection.numActionScorel3coral
 import com.frc135.match_collection.numActionScorel4coral
 import com.frc135.match_collection.orientation
 import com.frc135.match_collection.scoring
-import kotlinx.android.synthetic.main.collection_objective_teleop_fragment.view.teleop_compose_view
+//import kotlinx.android.synthetic.main.collection_objective_teleop_fragment.view.teleop_compose_view
 
 /**
  * [Fragment] used for showing intake buttons in [TeleopOuttakeFragment]
