@@ -6,7 +6,7 @@ The **2026-Scouting_App** app is a tool developed by **Team 135** for collecting
 
 ## Features
 
-- **Real-time Scouting**: Capture team performance data during the REEFSCAPE game.
+- **Real-time Scouting**: Capture team performance data during the REBUILT game.
 - **QR Code Scanning**: Quickly identify teams and matches using QR codes.
 - **Match Data Storage**: Store match data for each team during events for easy access and analysis.
 - **Event Tracking**: Track different events and matches during the competition.
